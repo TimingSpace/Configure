@@ -1,0 +1,4 @@
+image_path=~/Document
+camera_focus=600
+camera_cx=600
+camera_cy=200
