@@ -9,9 +9,8 @@ int main(int argc, char ** argv)
     else
         config_file_path = "config.txt";
     Configure configure(config_file_path);
-    double camera_cx;
-    if(configure.GetValue("camera_cx",camera_cx))
-        printf("%lf\n",camera_cx);
+    int camera_cx = configure.GetValue<int>("camera_cx");
+    printf("%d\n",camera_cx);
     return 0;
 
 }

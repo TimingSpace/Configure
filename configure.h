@@ -31,11 +31,26 @@ public:
             }
         }    
     }
-    std::string GetValue(std::string key)
+    /*std::string GetValue(std::string key)
     {
         if(parameters.find(key)==parameters.end())
             printf("can not find parameter %s\n",key.c_str());
         return parameters[key];
+    }*/
+    template<typename T>
+    T GetValue(std::string key)
+    {
+        if(parameters.find(key)==parameters.end())
+        {
+            printf("can not find parameter %s\n",key.c_str());
+            return false;
+        }
+        T value;
+        std::string value_s = parameters[key];
+        std::stringstream value_stream(value_s);
+        value_stream>>value;
+        return value;
+
     }
     template<typename T>
     bool GetValue(std::string key,T &value)
