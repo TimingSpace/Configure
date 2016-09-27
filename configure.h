@@ -12,7 +12,8 @@ public:
     Configure(){}
     Configure(std::string config_file_path)
     {
-        std::fstream config_file(config_file_path,std::fstream::in);
+        std::fstream config_file;
+        config_file.open(config_file_path.c_str(),std::fstream::in);
         if(config_file.is_open() == false)
         {
             printf("can not open file %s\n",config_file_path.c_str());
